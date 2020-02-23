@@ -1,5 +1,9 @@
 # linux使用openmp
 
+- 头文件 `#include <omp.h>`
+- 寻找可并行代码块 “structured block”:
+- 使用openMP标记一行或多行语句，成为一个结构化模块，使用编译器指导语句并行执行.
+
 ## 依赖环境
 
 - gcc
