@@ -7,6 +7,7 @@
 ## 依赖环境
 
 - gcc
+- gcc参数详解：<https://www.runoob.com/w3cnote/gcc-parameter-detail.html>
 
 ## 编译执行
 
@@ -21,6 +22,7 @@ cd /media/sf_vbshare/github/test_cplusplus/ucas/openmp
 ~~~shell
 gcc foo.c
 ./a.out
+gcc hello.c&&./a.out
 ~~~
 
 - 多进程编译
@@ -30,4 +32,5 @@ export OMP_NUM_THREADS=4
 
 gcc -fopenmp foo.c
 ./a.out
+gcc -fopenmp hello_par.c&&./a.out
 ~~~
