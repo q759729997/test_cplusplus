@@ -26,7 +26,7 @@ int main ()
 	  step = 1.0/(double) num_steps;
 
         	 
-	  start_time = omp_get_wtime();
+	  start_time = omp_get_wtime();  // Time in Seconds since a fixed point in the past
 
 	  for (i=1;i<= num_steps; i++){
 		  x = (i-0.5)*step;
