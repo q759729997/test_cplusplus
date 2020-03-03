@@ -47,10 +47,10 @@ int main ()
 
 #pragma omp parallel  
 {
-#pragma omp single
+#pragma omp single  // 默认有barrier（栅栏）
 		printf(" num_threads = %d",omp_get_num_threads());
 
-#pragma omp for reduction(+:sum)
+#pragma omp for reduction(+:sum)  // 使用reduction对sum进行加法规约，并行执行时每个线程都保存sum拷贝，结束后进行相加。
 		for (i=1;i<= num_steps; i++){
 			x = (i-0.5)*step;
 			sum = sum + 4.0/(1.0+x*x);

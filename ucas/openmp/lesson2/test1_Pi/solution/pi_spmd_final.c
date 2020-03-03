@@ -64,7 +64,7 @@ int main ()
 		full_sum = 0.0;
 		start_time = omp_get_wtime();
 
-		#pragma omp parallel private(i)
+		#pragma omp parallel private(i)  // i为每个线程私有
 		{
 			int id = omp_get_thread_num();
 			int numthreads = omp_get_num_threads();
@@ -72,7 +72,7 @@ int main ()
 
 			double partial_sum = 0;
 
-			#pragma omp single
+			#pragma omp single  // 默认有barrier（栅栏）
 				printf(" num_threads = %d",numthreads);
 
 			for (i = id; i < num_steps; i += numthreads){
@@ -80,7 +80,7 @@ int main ()
 				partial_sum += + 4.0/(1.0+x*x);
 			}
 				
-			#pragma omp critical
+			#pragma omp critical  // 互斥，一次只有一个线程可以进入该区域，π的更新不冲突
 				full_sum += partial_sum;
 		}
 		

@@ -46,7 +46,7 @@ double random_low, random_hi;
 static unsigned long long pseed[MAX_THREADS][64]; //[4] to padd to cache line
                                                  //size to avoid false sharing
 unsigned long long random_last = 0;
-#pragma omp threadprivate(random_last)
+#pragma omp threadprivate(random_last)  //threadprivate不是针对某一个并行块，而是作用于整个程序。
 
 
 double drandom()

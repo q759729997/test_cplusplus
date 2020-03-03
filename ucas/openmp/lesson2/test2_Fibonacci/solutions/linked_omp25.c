@@ -98,12 +98,12 @@ int main(int argc, char *argv[]) {
                p = p->next;
         }
        
-        // do the work in parallel 
+        // do the work in parallel  https://www.cnblogs.com/kuliuheng/p/4075788.html
         #pragma omp parallel 
         {
            #pragma omp single
                printf(" %d threads \n",omp_get_num_threads());
-           #pragma omp for schedule(static,1)
+           #pragma omp for schedule(static,1)  // schedule调度。有n次循环迭代，t个线程，那么给每个线程静态分配大约n/t次迭代计算
            for(i=0; i<count; i++)
 		   processwork(parr[i]);
         }

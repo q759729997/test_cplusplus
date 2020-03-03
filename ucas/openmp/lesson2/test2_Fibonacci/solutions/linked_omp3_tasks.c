@@ -81,14 +81,14 @@ int main()
 
 	#pragma omp parallel 
 	{
-      #pragma omp master
+      #pragma omp master  // 默认没有barrier栅栏
          printf("Threads:      %d\n", omp_get_num_threads());
 
 		#pragma omp single
 		{
 			p=head;
 			while (p) {
-				#pragma omp task firstprivate(p) //first private is required
+				#pragma omp task firstprivate(p) //first private is required，用task定义任务，解决while循环并行化问题。用share初始化后修改为private
 				{
 					processwork(p);
 				}
