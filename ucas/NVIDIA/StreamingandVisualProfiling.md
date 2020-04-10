@@ -78,7 +78,7 @@ You will begin by creating a report file for an already-existing vector addition
 
 （单击这些指向源文件的链接以在浏览器中编辑它们）包含一个工作的、加速的矢量添加应用程序。使用下面的代码执行单元（您可以执行它，也可以通过“CTRL”+单击它来执行这个实验室中的任何代码执行单元）编译并运行它。您应该会看到一条打印的消息，指示它已成功。
 
-In [ ]:
+In [ ]:**直接运行，代码文件：01-1-vector-add.cu**
 
 ```
 !nvcc -o vector-add-no-prefetch 01-vector-add/01-vector-add.cu -run
@@ -88,7 +88,7 @@ Next, use `nsys profile --stats=true` to create a report file that you will be a
 
 接下来，使用“nsys profile--stats=true”创建一个报告文件，您可以在Nsight Systems visual profiler中打开该文件。在这里，我们使用“-o”标志为报告文件命名：
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 !nsys profile --stats=true -o vector-add-no-prefetch-report ./vector-add-no-prefetch
@@ -100,7 +100,7 @@ Run the next cell to generate a link to a remote desktop then read the instructi
 
 运行下一个单元格以生成指向远程桌面的链接，然后阅读下面的说明。
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 %%js
@@ -217,7 +217,7 @@ After reviewing the changes, compile and run the refactored application using th
 
 在检查更改之后，使用下面的代码执行单元编译并运行重构的应用程序。你应该看到它的成功信息被打印出来。
 
-In [ ]:
+In [ ]:**直接运行，代码文件：01-2-vector-add-prefetch-solution.cu**
 
 ```
 !nvcc -o vector-add-prefetch 01-vector-add/solutions/01-vector-add-prefetch-solution.cu -run
@@ -227,7 +227,7 @@ Now create a report file for this version of the application:
 
 现在为该版本的应用程序创建一个报告文件：
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 !nsys profile --stats=true -o vector-add-prefetch-report ./vector-add-prefetch
@@ -265,7 +265,7 @@ After reviewing the changes, compile and run the refactored application using th
 
 在检查更改之后，使用下面的代码执行单元编译并运行重构的应用程序。你应该看到它的成功信息被打印出来。
 
-In [ ]:
+In [ ]:**直接运行，代码文件：01-3-init-kernel-solution.cu**
 
 ```
 !nvcc -o init-kernel 02-init-kernel/solutions/01-init-kernel-solution.cu -run
@@ -275,7 +275,7 @@ Now create a report file for this version of the application:
 
 现在为该版本的应用程序创建一个报告文件：
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 !nsys profile --stats=true -o init-kernel-report ./init-kernel
@@ -311,7 +311,7 @@ After reviewing the changes, compile and run the refactored application using th
 
 在检查更改之后，使用下面的代码执行单元编译并运行重构的应用程序。你应该看到它的成功信息被打印出来。
 
-In [ ]:
+In [ ]:**直接运行，代码文件：01-4-prefetch-check-solution.cu**
 
 ```
 !nvcc -o prefetch-to-host 04-prefetch-check/solutions/01-prefetch-check-solution.cu -run
@@ -321,7 +321,7 @@ Now create a report file for this version of the application:
 
 现在为该版本的应用程序创建一个报告文件：
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 !nsys profile --stats=true -o prefetch-to-host-report ./prefetch-to-host
@@ -347,7 +347,7 @@ The following slides present upcoming material visually, at a high level. Click 
 
 以下幻灯片以高层次直观地展示了即将到来的材料。单击幻灯片，然后转到下面各节中对其主题的更详细介绍。
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 %%HTML
@@ -408,7 +408,7 @@ Compile and run [01-print-numbers](http://ec2-3-85-242-54.compute-1.amazonaws.co
 
 使用下面的代码执行块编译并运行[01 print numbers]。你应该看到数字“0”到“4”被打印出来。
 
-In [ ]:
+In [ ]:**直接运行，代码文件：01-5-print-numbers.cu**
 
 ```
 !nvcc -o print-numbers 05-stream-intro/01-print-numbers.cu -run
@@ -418,7 +418,7 @@ Knowing that by default kernels are executed in the default stream, would you ex
 
 知道默认情况下内核是在默认流中执行的，您希望“print numbers”程序的5次启动是串行执行还是并行执行？您应该能够提到默认流的两个特性来支持您的答案。在下面的单元格中创建一个报告文件，并在Nsight系统中打开它以确认您的答案。
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 !nsys profile --stats=true -o print-numbers-report ./print-numbers
@@ -434,7 +434,7 @@ Refactor [01-print-numbers](http://ec2-3-85-242-54.compute-1.amazonaws.com/lab/e
 
 重构[01 print numbers]，以便每个内核启动都在自己的非默认流中进行。确保在不再需要创建的流之后销毁它们。使用下面的代码执行单元编译并运行重构代码。您应该仍然可以看到从“0”到“4”的数字被打印出来，尽管不一定是按升序排列的。如果您遇到问题，请参考[解决方案]
 
-In [ ]:
+In [ ]:**修改01-print-numbers，替换为代码文件：01-6-print-numbers-solution.cu**
 
 ```
 !nvcc -o print-numbers-in-streams 05-stream-intro/01-print-numbers.cu -run
@@ -448,7 +448,7 @@ After hypothesizing, open a new report file in Nsight Systems to view its actual
 
 假设之后，在Nsight系统中打开一个新的报告文件来查看它的实际行为。您应该注意到，现在，*CUDA*部分中为您创建的每个非默认流添加了一些行：
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 !nsys profile --stats=true -o print-numbers-in-streams-report print-numbers-in-streams
@@ -462,7 +462,7 @@ The vector addition application you have been working with, [01-prefetch-check-s
 
 您一直在使用的向量添加应用程序，[01 prefetch check solution.cu]当前会启动一个初始化内核3次，对于需要初始化“vectorAdd”内核的3个向量，每个都会启动一次。重构它以在3个初始化内核中的每一个在它们自己的非默认流中启动。在编译并使用下面的代码执行单元运行时，您应该仍然可以看到成功消息打印。如果遇到问题，请参阅[解决方案]
 
-In [ ]:
+In [ ]:**01-7-prefetch-check-solution.cu，修改内容为代码文件：01-8-stream-init-solution.cu**
 
 ```
 !nvcc -o init-in-streams 04-prefetch-check/solutions/01-prefetch-check-solution.cu -run
@@ -472,7 +472,7 @@ Open a report in Nsight Systems to confirm that your 3 initialization kernel lau
 
 在Nsight系统中打开一个报告，确认您的3个初始化内核启动是在它们自己的非默认流中运行的，并且有一定程度的并发重叠。
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 !nsys profile --stats=true -o init-in-streams-report ./init-in-streams
@@ -548,9 +548,9 @@ Here are some things to consider before beginning your work:
 
 - 您不需要向代码中添加错误处理，但您可能会发现它很有帮助，因为您要对代码的正常工作负责。
 
-Have Fun!
+Have Fun! 参考：https://github.com/AlexZFX/cuda-nbody
 
-In [ ]:
+In [ ]:**替换为nbody_shared.cu**
 
 ```
 !nvcc -o nbody 09-nbody/01-nbody.cu
@@ -662,7 +662,7 @@ Refer to [the solution](http://ec2-3-85-242-54.compute-1.amazonaws.com/lab/edit/
 
 如果遇到问题，请参阅[解决方案]
 
-In [ ]:
+In [ ]:**01-10-stream-init-solution.cu内容修改为代码文件：01-11-manual-malloc-solution.cu**
 
 ```
 !nvcc -o vector-add-manual-alloc 06-stream-init/solutions/01-stream-init-solution.cu -run
@@ -690,7 +690,7 @@ The following slides present upcoming material visually, at a high level. Click 
 
 以下幻灯片以高层次直观地展示了即将到来的材料。单击幻灯片，然后转到下面各节中对其主题的更详细介绍。
 
-In [ ]:
+In [ ]:**直接运行**
 
 ```
 %%HTML
@@ -766,7 +766,7 @@ Refactor [01-manual-malloc-solution.cu](http://ec2-3-85-242-54.compute-1.amazona
 
 重构[01 manual malloc solution.cu]以在4个段中执行向量添加，在非默认流中，以便在等待所有向量添加工作完成之前可以开始异步内存复制。如果遇到问题，请参阅[解决方案]
 
-In [ ]:
+In [ ]:**01-manual-malloc-solution.cu内容修改为：01-13-overlap-xfer-solution.cu**
 
 ```
 !nvcc -o vector-add-manual-alloc 07-manual-malloc/solutions/01-manual-malloc-solution.cu -run

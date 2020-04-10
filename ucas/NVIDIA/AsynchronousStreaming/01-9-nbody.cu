@@ -9,6 +9,7 @@
 /*
  * Each body contains x, y, and z coordinate positions,
  * as well as velocities in the x, y, and z directions.
+ https://github.com/AlexZFX/cuda-nbody
  */
 
 typedef struct { float x, y, z, vx, vy, vz; } Body;
